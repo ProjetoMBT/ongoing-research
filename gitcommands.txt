@@ -1,0 +1,31 @@
+Para inicializar um projeto na máquina, ou seja, começar a trabalhar com um projeto do git:
+
+git clone https://github.com/ProjetoMBT/<nome-do-repositorio>.git
+
+Para atualizar um projeto com as alterações que estão no repositório (de outras pessoas):
+
+git pull
+
+Para conferir o status do projeto (ver se as alterações feitas por ti estão registradas):
+
+git status
+
+Para alterar a lista de arquivos que são registrados:
+
+git add
+ou
+git ignore
+
+Na dúvida, usem o seguinte comando:
+
+git add -A
+
+Para realizar commit das alterações (ou seja, registrar uma versão do repositório):
+
+git commit
+
+Durante o commit, será pedido para que vocês deixem um registro sobre o que esse commit é. PREENCHAM ESSE TEXTO SEMPRE COM ALGO ÚTIL. O control de versão será feito a partir disso.
+
+Para realizar o envio de um commit para o github:
+
+git push
