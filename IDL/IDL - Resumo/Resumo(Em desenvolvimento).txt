@@ -1,0 +1,9 @@
+IDL -------------------------
+	O OMG Interface Definition Language (IDL), é uma linguagem de descrição utilizada para descrição de ligações entre objetos e objetos independente da implementação. A interface define até mesmo os parametros utilizados para tal operação. A linguagem necessita que o desenvolvedor utilize interfaces de operação.
+	A versão do Java ™ 2 Platform Standard Edition 5.0 inclui -idlj-, que é um compilador que consegue ler um arquivo com extensão IDL, e o traduz ou mapeia para uma interface java. Dependendo das opções de linha de comando usadas, o compilador gera stub, skeleton, helper, holder e outros arquivos conforme o necessário. Onde estes arquivos são gerados a partir de um arquivo com extensão IDL.
+	Essa interoperabilidade é possível porquê o o IDL é baseado no CORBA. Uma característica crucial do CORBA é o IDL uma linguagem de linguagem neutra. Onde cada linguagem que possui um suporte ao CORBA possui um mapeamento IDL próprio.
+	Para a interação destes objetos o Java IDL fornece um Object Request Broker ou ORB. Sendo que este é uma biblioteca de classes que vai permitir uma comunicação em baixo nível entre aplicativos Java IDL com outros aplicativos que dão suporte ao CORBA.
+	
+CORBA-------------------------
+	Muito utilizado em CORBA (Commom object request broker architecture), que é uma especificação OMA(Object management architecture) com o objetivo de conter interoperabilidade (comunicação transparente) entre diferentes SO e linguagens de programação através de ORB's, estas são estruturas permitem que programadores façam chamadas de um computador pro outro através de uma rede.
+	Para o CORBA funcionar o ORB é elementar, que tem como objetivo facilitar a comunicação dos objetos. Provendo IOR(Interoperable Object Reference), o ORB consegue localizar os objetos destinhos e transmitir informação para uma das invocações de métodos remotos(RMI).

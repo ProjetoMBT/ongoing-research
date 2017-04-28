@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0082)http://docs.oracle.com/javase/7/docs/technotes/guides/idl/mapping/jidlMapping.html -->
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" class=" regenabled browserSafari radius jsenabled regloaded translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java IDL: Mapping IDL to Java</title>
+
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/popUp.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/sniff.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/menucontent.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/menucode.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/developer.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/search.js"></script>
+<link rel="stylesheet" href="./Java IDL_ Mapping IDL to Java_files/default_developer.css">
+<meta name="collection" content="reference"> 
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Java IDL_ Mapping IDL to Java_files/translateelement.css"></head>
+<body>
+<noscript>JavaScript is not supported by your browser. JavaScript
+support is required for full functionality of this page.</noscript>
+<div class="a0 a0v1" id="a0v1"><!-- BEGIN A1 COMPONENT V.0 -->
+<div class="a1 a1r2">
+<div class="a1v0"><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/mapping/jidlMapping.html#skip2content" class="skiplink"><font><font>Ir para o conteúdo</font></font></a></div>
+</div>
+<!-- END A1 COMPONENT V.0 -->
+<!-- BEGIN A2 COMPONENT V.1 -->
+<div class="a2w0">
+<div class="a2" id="a2v1">
+<div class="a2w1">
+<div class="a2w2">
+<div class="a2w3">
+<div class="a2w4">
+<div class="a2topiclinks"><a href="http://www.oracle.com/" title="Página inicial do Oracle" id="sunlogo" name="sunlogo"><img src="./Java IDL_ Mapping IDL to Java_files/a.gif" alt="Pagina inicial" width="98" height="58" border="0"></a>
+<ul id="mtopics">
+<li id="mtopic1"><a id="glink1" class="tpclink a2menu" title="Consulte Oracle Technology Network" href="http://oracle.com/technology" name="glink1"><font><font>Rede de Tecnologia Oracle</font></font></a></li>
+<li id="mtopic2"><a id="glink2" class="tpclink a2menu" title="Downloads de software" href="http://www.oracle.com/technology/software/index.html" name="glink2"><font><font>Downloads de software</font></font></a></li>
+<li id="mtopic3"><a id="glink3" class="tpclink a2menu" title="Consulte Documentação do Java SE" href="http://download.oracle.com/javase/index.html" name="glink3"><font><font>Documentação</font></font></a></li>
+</ul>
+<div class="a2search"><a href="http://docs.oracle.com/javase/search.html" target="_blank"><font><font>Pesquisa</font></font></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END A2 COMPONENT V.1 -->
+<!-- BEGIN SEPARATOR -->
+<div class="hr">
+<hr></div>
+<!-- END SEPARATOR -->
+<!-- ============ -->
+<!-- MAIN CONTENT -->
+<!-- ============ -->
+<a name="skip2content" id="skip2content"></a>
+
+
+<div class="smallpagetitle"><h1><font><font>Java IDL: IDL para mapeamento de linguagem Java</font></font></h1></div>
+<p><font><font class="">Esta versão do Java ™ 2 Platform Standard Edition 5.0 inclui </font></font><tt><font><font class="">idlj</font></font></tt><font><font class=""> , um </font><tt><font class="">compilador</font></tt><font class=""> que lê um arquivo IDL (Interface Definition Language) do Grupo de Gerenciamento de Objetos (OMG) e o traduz ou o mapeia para uma interface Java. </font><font>Dependendo das opções de linha de comando usadas, o </font></font><tt><font><font>compilador idlj</font></font></tt><font><font> cria stub, skeleton, helper, holder e outros arquivos conforme necessário. </font><font>Estes </font><font>
+arquivos </font></font><tt><font><font>.java</font></font></tt><font><font> são gerados a partir do arquivo IDL de acordo com o mapeamento especificado no documento OMG (formato pdf) </font></font><a href="http://www.omg.org/cgi-bin/doc?ptc/00-01-08"><i><font><font>OMG IDL para Java Language Mapping Specification, ptc</font></font></i><font><font> , 00-01-08</font></font></a><font><font> , com as revisões indicadas em </font></font><a href="http://www.omg.org/cgi-bin/doc?ptc/00-11-03"><font><font>ptc / 00-11- 03, </font></font><i><font><font>O novo IDL para Mapeamento Java Capítulo</font></font></i></a><font><font> . </font><font>A versão 00-01-08 do mapeamento IDL para linguagem Java está alinhada com CORBA versão 2.3.2.</font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/mapping/jidlMapping.html#overview"><font></font></a><font></font></p>
+<ul>
+<li><font><font class="">A tecnologia CORBA fornecida no J2SE 5.0 está em conformidade com os mapeamentos especificados pelo documento a seguir: </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/compliance.html"><font><font class="">Especificações oficiais para suporte CORBA no J2SE 5.0</font></font></a><font><font class=""> .</font></font></li>
+</ul>
+<p><font><font class="">Alguns tópicos da </font><font class="">
+especificação </font><font class="">OMG </font></font><i><font><font class="">IDL para Java Language Mapping</font></font></i><font><font class=""> que não são facilmente resumidos são:</font></font></p>
+<ul>
+<li><font><font class="">Seção 1.13, Mapeamento para Tipo de Valor</font></font></li>
+<li><font><font>Seção 1.14, Tipos de Caixa de Valor</font></font></li>
+<li><font><font class="">Seção 1.20, Mapeamento do lado do servidor</font></font></li>
+<li><font><font>Seção 1.21, Interfaces de portabilidade Java ORB</font></font></li>
+</ul>
+<hr>
+<h2><a name="overview" id="overview"><font><font>Visão geral do mapeamento IDL para linguagem Java</font></font></a></h2>
+<p><font><font>Objetos CORBA são definidos em OMG IDL (Object Management Group Interface Definition Language). </font><font>A sintaxe e a semântica do OMG IDL são definidas no Capítulo 3 da </font></font><a href="http://www.omg.org/cgi-bin/doc?formal/99-10-07"><em><font><font>Especificação CORBA / IIOP 2.3.1</font></font></em></a><font><font> . </font><font class="">O </font></font><tt><font><font class="">compilador</font></font></tt><font><font class=""> IDL para Java,
+ </font><tt><font class="">idlj</font></tt><font class=""> , mapeia as </font><tt><font class="">interfaces definidas</font></tt><font class=""> pelo IDL para classes e interfaces Java, conforme definido no </font></font><a href="http://www.omg.org/cgi-bin/doc?ptc/00-01-08"><i><font><font class="">OMG IDL para Java Language Mapping Specification</font></font></i><font><font class=""> , ptc, 00-01-08</font></font></a><font><font class=""> e como suportado nesta versão da plataforma Java , Conforme descrito nas Especificações
+ </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/compliance.html"><em><font><font class="">Oficiais para o suporte CORBA no J2SE 5.0</font></font></em></a><font><font class=""> .</font></font></p>
+<p><font><font>Esta visão geral mostra a correspondência entre tipos OML IDL e tipos Java. </font><font>Observe que OMG IDL, como seu nome indica, define interfaces. </font><font>Como interfaces Java, interfaces IDL não contêm implementações para suas operações (métodos em Java). </font><font>Em outras palavras, as interfaces IDL definem apenas a assinatura de uma operação (o nome da operação, o tipo de dados do seu valor de retorno, os tipos de dados dos parâmetros que ele toma e quaisquer exceções que ele gera). </font><font>As implementações para essas operações precisam ser fornecidas em classes Java escritas por um programador Java.</font></font></p>
+<p><font><font>A tabela a seguir lista as principais construções do IDL e as construções correspondentes em Java.</font></font></p>
+<table summary="main constructs of IDL and Java" border="1" cellspacing="0" cellpadding="5" width="100%">
+<thead>
+<tr>
+<th valign="top">
+<p align="left"><font><font>Tipo IDL</font></font></p>
+</th>
+<th valign="top">
+<p align="left"><font><font>Tipo Java</font></font></p>
+</th>
+</tr>
+<tr>
+<td>
+<p><font><font>módulo</font></font></p>
+</td>
+<td>
+<p><font><font>pacote</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>boleano</font></font></p>
+</td>
+<td>
+<p><font><font>boleano</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Char, wchar</font></font></p>
+</td>
+<td>
+<p><font><font>Caracteres</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Octeto</font></font></p>
+</td>
+<td>
+<p><font><font>byte</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>String, wstring</font></font></p>
+</td>
+<td>
+<p><font><font>Java.lang.String</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Curto, não assinado curto</font></font></p>
+</td>
+<td>
+<p><font><font>curto</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Longo, sem sinal longo</font></font></p>
+</td>
+<td>
+<p><font><font>Int</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Long long, unsigned long long</font></font></p>
+</td>
+<td>
+<p><font><font>longo</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>flutuador</font></font></p>
+</td>
+<td>
+<p><font><font>flutuador</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Duplo</font></font></p>
+</td>
+<td>
+<p><font><font>Duplo</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>fixo</font></font></p>
+</td>
+<td>
+<p><font><font>Java.math.BigDecimal</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Enum, struct, union</font></font></p>
+</td>
+<td>
+<p><font><font>classe</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Sequência, matriz</font></font></p>
+</td>
+<td>
+<p><font><font>Array</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Interface (não-abstrato)</font></font></p>
+</td>
+<td>
+<p><font><font>Interface de assinatura e uma interface de operações, classe auxiliar, classe de suporte</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Interface (resumo)</font></font></p>
+</td>
+<td>
+<p><font><font>Interface de assinatura, classe auxiliar, classe de suporte</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Constante (não dentro de uma interface)</font></font></p>
+</td>
+<td>
+<p><font><font>Interface pública</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Constante (dentro de uma interface)</font></font></p>
+</td>
+<td>
+<p><font><font>Campos na interface de assinatura Java para não-abstract, ou a única interface Java para abstract</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>exceção</font></font></p>
+</td>
+<td>
+<p><font><font>classe</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Qualquer</font></font></p>
+</td>
+<td>
+<p><font><font>Org.omg.CORBA.Any</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Digite declarações aninhadas dentro de interfaces</font></font></p>
+</td>
+<td>
+<p><font><font>Pacote "escopo"</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Tipedef</font></font></p>
+</td>
+<td>
+<p><font><font>Aulas auxiliares</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Pseudo objetos</font></font></p>
+</td>
+<td>
+<p><font><font>Pseudo interface</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Readonly atributo</font></font></p>
+</td>
+<td>
+<p><font><font>Método de acesso</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Atributo readwrite</font></font></p>
+</td>
+<td>
+<p><font><font>Acessor e métodos de modificador</font></font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><font><font>Operação</font></font></p>
+</td>
+<td>
+<p><font><font>método</font></font></p>
+</td>
+</tr>
+</thead>
+</table>
+
+<div id="javasefooter">
+<div class="hr">
+<hr></div>
+<div id="javasecopyright">
+<a href="http://docs.oracle.com/javase/7/docs/legal/cpyr.html"><font><font>Copyright ©</font></font></a><font><font> 1993, 2014, Oracle e / ou suas afiliadas. </font><font>Todos os direitos reservados.
+</font></font></div>
+
+<div id="javasecontactus">
+<a href="http://docs.oracle.com/javase/feedback.html"><font><font>Contate-Nos</font></font></a>
+</div>
+</div>
+</div>
+
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/s_code_download.js"></script>
+<script language="JavaScript" type="text/javascript" src="./Java IDL_ Mapping IDL to Java_files/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript" type="text/javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+ 
+<!-- End SiteCatalyst code --><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 372px; top: 275px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="./Java IDL_ Mapping IDL to Java_files/translate_24dp.png" width="20" height="20" alt="Google Tradutor"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Some topics from the OMG IDL to Java Language Mapping
+specification that are not easily summarized are:</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugerir uma tradução melhor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body><object id="595bd9ab-ab9b-8aa4-5b99-19839bbe83bd" width="0" height="0" type="application/gas-events-cef"></object></html>

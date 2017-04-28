@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0069)http://docs.oracle.com/javase/7/docs/technotes/guides/idl/GShome.html -->
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" class="regenabled browserSafari radius jsenabled regloaded translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introdução ao IDL do Java</title>
+
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/popUp.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/sniff.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/menucontent.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/menucode.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/developer.js"></script>
+<script language="javascript1.2" type="text/javascript" src="./Introdução ao IDL do Java_files/search.js"></script>
+<link rel="stylesheet" href="./Introdução ao IDL do Java_files/default_developer.css">
+<meta name="collection" content="reference"> 
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Introdução ao IDL do Java_files/translateelement.css"></head>
+<body>
+<noscript>JavaScript is not supported by your browser. JavaScript
+support is required for full functionality of this page.</noscript>
+<div class="a0 a0v1" id="a0v1"><!-- BEGIN A1 COMPONENT V.0 -->
+<div class="a1 a1r2">
+<div class="a1v0"><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/GShome.html#skip2content" class="skiplink"><font><font>Ir para o conteúdo</font></font></a></div>
+</div>
+<!-- END A1 COMPONENT V.0 -->
+<!-- BEGIN A2 COMPONENT V.1 -->
+<div class="a2w0">
+<div class="a2" id="a2v1">
+<div class="a2w1">
+<div class="a2w2">
+<div class="a2w3">
+<div class="a2w4">
+<div class="a2topiclinks"><a href="http://www.oracle.com/" title="Página inicial do Oracle" id="sunlogo" name="sunlogo"><img src="./Introdução ao IDL do Java_files/a.gif" alt="Pagina inicial" width="98" height="58" border="0"></a>
+<ul id="mtopics">
+<li id="mtopic1" class=" a2nomenu"><a id="glink1" class="tpclink a2menu" title="Consulte Oracle Technology Network" href="http://oracle.com/technology" name="glink1"><font><font>Rede de Tecnologia Oracle</font></font></a></li>
+<li id="mtopic2" class=" a2nomenu"><a id="glink2" class="tpclink a2menu" title="Downloads de software" href="http://www.oracle.com/technology/software/index.html" name="glink2"><font><font>Downloads de software</font></font></a></li>
+<li id="mtopic3" class=" a2nomenu"><a id="glink3" class="tpclink a2menu" title="Consulte Documentação do Java SE" href="http://download.oracle.com/javase/index.html" name="glink3"><font><font>Documentação</font></font></a></li>
+</ul>
+<div class="a2search"><a href="http://docs.oracle.com/javase/search.html" target="_blank"><font><font>Pesquisa</font></font></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END A2 COMPONENT V.1 -->
+<!-- BEGIN SEPARATOR -->
+<div class="hr">
+<hr></div>
+<!-- END SEPARATOR -->
+<!-- ============ -->
+<!-- MAIN CONTENT -->
+<!-- ============ -->
+<a name="skip2content" id="skip2content"></a>
+
+
+<div class="smallpagetitle"><h1><font><font>Introdução ao Java ™ IDL</font></font></h1></div><font><font>
+Java ™ IDL é uma tecnologia para objetos distribuídos - ou seja, objetos interagindo em diferentes plataformas em uma rede. </font><font>O Java IDL permite que os objetos interajam independentemente de estarem escritos na linguagem de programação Java ou em outra linguagem como C, C ++, COBOL ou outros.
+</font></font><p><font><font>Isso é possível porque o IDL do Java é baseado no Common Object Request Brokerage Architecture (CORBA), um modelo de objeto distribuído padrão do setor. </font><font>Uma característica fundamental do CORBA é o IDL, uma linguagem de linguagem neutra. </font><font>Cada linguagem que suporta CORBA tem seu próprio mapeamento IDL - e como seu nome indica, o Java IDL suporta o mapeamento para Java. </font><font>Para saber mais sobre o mapeamento de linguagem IDL para Java, consulte </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/mapping/jidlMapping.html"><font><font>mapeamento de linguagem IDL-para-Java</font></font></a><font><font> .</font></font></p>
+<p><font><font>Para suportar a interação entre objetos em programas separados, o Java IDL fornece um Object Request Broker ou ORB. </font><font>O ORB é uma biblioteca de classes que permite comunicação de baixo nível entre aplicativos Java IDL e outros aplicativos compatíveis com CORBA.</font></font></p>
+<p><font><font>Este tutorial ensina as tarefas básicas necessárias para construir um aplicativo distribuído CORBA usando Java IDL. </font><font>Você irá construir o clássico programa "Hello World" como um aplicativo distribuído. </font><font>O programa Hello World tem uma única operação que retorna uma seqüência de caracteres a ser impresso.</font></font></p>
+<p><font><font>Qualquer relacionamento entre objetos distribuídos tem dois lados: o cliente e o servidor. </font><font>O servidor fornece uma interface remota e o cliente chama uma interface remota. </font><font>Essas relações são comuns à maioria dos padrões de objetos distribuídos, incluindo Java Remote Method Invocation ( </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/rmi/index.html"><font><font>RMI</font></font></a><font><font> , </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/rmi-iiop/index.html"><font><font>RMI-IIOP</font></font></a><font><font> ) e </font></font><a href="http://www.omg.org/corba/"><font><font>CORBA</font></font></a><font><font> . </font><font>Observe que, neste contexto, os termos cliente e servidor definem nível de objeto ao invés de interação em nível de aplicativo - qualquer aplicativo pode ser um servidor para alguns objetos e um cliente de terceiros. </font><font>Na verdade, um único objeto poderia ser o cliente de uma interface fornecida por um objeto remoto e, ao mesmo tempo, implementar uma interface a ser chamada remotamente por outros objetos.</font></font></p>
+<p><font><font>Esta figura mostra como um objeto distribuído de um método é compartilhado entre um cliente e servidor CORBA para implementar o aplicativo clássico "Hello World".</font></font></p>
+<img src="./Introdução ao IDL do Java_files/IDL-1.gif" width="241" height="114" align="bottom" naturalsizeflag="3" alt="">
+<em><font size="-1"><font><font>Um objeto distribuído de um método compartilhado entre um cliente e servidor CORBA.</font></font></font></em>
+<p><font><font>No lado do cliente, o aplicativo inclui uma referência para o objeto remoto. </font><font>A referência de objeto tem um método stub, que é um stand-in para o método sendo chamado remotamente. </font><font>O stub é realmente conectado no ORB, de modo que chamá-lo invoca capacidades de conexão do ORB, que encaminha a invocação para o servidor.</font></font></p>
+<p><font><font>No lado do servidor, o ORB usa o código de esqueleto para traduzir a chamada remota em uma chamada de método no objeto local. </font><font>O esqueleto traduz a chamada e quaisquer parâmetros para seu formato específico de implementação e chama o método que está sendo invocado. </font><font>Quando o método retorna, o código de esqueleto transforma resultados ou erros e os envia de volta para o cliente através dos ORBs.</font></font></p>
+<p><font><font>Entre os ORBs, a comunicação prossegue por meio de um protocolo compartilhado, IIOP - o Internet Inter-ORB Protocol. </font><font>O IIOP, que é baseado no protocolo de Internet TCP / IP padrão, define como os ORBs compatíveis com CORBA passam as informações de um lado para o outro. </font><font>Como CORBA e IDL, o padrão IIOP é definido pelo OMG, o Object Management Group.</font></font></p>
+<h2><font><font>O Processo de Desenvolvimento IDL Java eo Tutorial Hello World</font></font></h2><font><font>
+Este tutorial ensina as tarefas básicas na construção de um aplicativo distribuído CORBA usando Java IDL. </font><font>Você irá construir o clássico programa "Hello World" como um aplicativo distribuído. </font><font>O programa "Hello World" tem uma única operação que retorna uma seqüência de caracteres a ser impressa.
+</font></font><p><font><font>Apesar do seu design simples, o programa Hello World permite que você aprenda e experimente todas as tarefas necessárias para desenvolver quase qualquer programa CORBA que use a invocação estática. </font><font>As etapas a seguir fornecem um guia geral para projetar e desenvolver um aplicativo de objeto distribuído com Java IDL. </font><font>Links para as etapas relevantes do tutorial irão guiá-lo através da criação deste aplicativo de exemplo.</font></font></p>
+<ol>
+<li><font><font>Definir a interface remota
+</font></font><p><font><font>Você define a interface para o objeto remoto usando o OMG Interface Definition Langauge (IDL). </font><font>Você usa IDL em vez da </font></font><code class="Code">idlj</code><font><font>linguagem </font><font>Java porque o </font><font>compilador mapeia automaticamente a partir de IDL, gerando todos os arquivos de código-fonte e esqueleto da linguagem Java, juntamente com o código de infraestrutura para conexão com o ORB. </font><font>Além disso, usando IDL, você torna possível para desenvolvedores para implementar clientes e servidores em qualquer outro linguagem compatível com CORBA.</font></font></p>
+<p><font><font>Observe que se você estiver implementando um cliente para um serviço CORBA existente ou um servidor para um cliente existente, você obteria as interfaces IDL do implementador - como um provedor de serviços ou fornecedor. </font><font>Em seguida, execute o </font></font><code class="Code">idlj</code><font><font>
+compilador sobre essas interfaces e siga estas etapas.</font></font></p>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GSIDL.html"><font><font class="">Escrever o arquivo IDL</font></font></a></b><font><font class=""> neste tutorial orienta você através da definição da interface remota para o exemplo simples "Hello World".</font></font></p>
+</li>
+<li><font><font>Compilar a interface remota
+</font></font><p><font><font>Quando você executa o </font></font><code class="Code">idlj</code><font><font>compilador sobre seu arquivo de definição de interface, ele gera a versão Java da interface, bem como os arquivos de código de classe para os stubs e esqueletos que permitem que seus aplicativos se liguem ao ORB.</font></font></p>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GSIDL.html#compiling"><font><font>Mapeando Hello.idl para Java</font></font></a></b><font><font> neste tutorial orienta você através destas etapas para o exemplo simples "Hello World".</font></font></p>
+</li>
+<li><font><font>Implementar o servidor
+</font></font><p><font><font>Depois de executar o </font></font><code>idlj</code><font><font>compilador, você pode usar os esqueletos que ele gera para montar seu aplicativo de servidor. </font><font>Além de implementar os métodos da interface remota, o código do servidor inclui um mecanismo para iniciar o ORB e aguardar a invocação de um cliente remoto.</font></font></p>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GSserver.html"><font><font>O desenvolvimento do servidor Hello World</font></font></a></b><font><font> orienta você através da criação de um servidor simples para o aplicativo "Hello World".</font></font></p>
+</li>
+<li><font><font>Implementar o cliente
+</font></font><p><font><font>Da mesma forma, você usar os stubs gerados pelo compilador </font></font><code class="Code">idlj</code><font><font>como a base do seu aplicativo cliente. </font><font>O código do cliente baseia-se nos stubs para iniciar seu ORB, procure o servidor usando o serviço de nome fornecido com IDL Java, obtenha uma referência para o objeto remoto e chame seu método.</font></font></p>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GSapp.html"><font><font>O desenvolvimento de um aplicativo cliente</font></font></a></b><font><font> orienta você através da criação de um aplicativo cliente simples.</font></font></p>
+</li>
+<li><font><font>Iniciar as aplicações
+</font></font><p><font><font>Depois de implementar um servidor e um cliente, você pode iniciar o serviço de nome e, em seguida, iniciar o servidor e, em seguida, executar o cliente.</font></font></p>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GScompile.html"><font><font>Executando o aplicativo Hello World</font></font></a></b><font><font> orienta você através da execução do servidor e do programa cliente que, juntos, compõem o aplicativo "Hello World" eo serviço de nome que permite que eles encontrem um ao outro.</font></font></p>
+</li>
+</ol>
+<p><b><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/GSstring.html"><font><font>O uso de Referências de Objeto Referenciadas</font></font></a></b><font><font> orienta você ao fazer uma referência de objeto quando não há um serviço de nomeação.</font></font></p>
+<p><strong><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/tutorial/jidl2machines.html"><font><font>Executar o aplicativo Hello World em duas máquinas</font></font></a></strong><font><font> descreve uma maneira de distribuir o aplicativo simples em duas máquinas - um cliente e um servidor.</font></font><a name="FYI" id="FYI"></a></p>
+<h2><font><font>Para maiores informações</font></font></h2>
+<p><font><font>Embora conceitos são explicados conforme são apresentados no tutorial, você vai encontrar mais informações no </font></font><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/idl/fund.html"><font><font>Concepts</font></font></a><font><font> seção. </font><font>Novos termos estão vinculados às suas definições ao longo do tutorial.</font></font></p>
+<p><font><font>O Grupo de Gerenciamento de Objetos não mantém mais este site, mas a </font><font>página </font><font>do </font></font><a href="http://www.omg.org/gettingstarted/"><i><font><font>CORBA for Beginnners</font></font></i></a><font><font> contém links para páginas da Web que fornecem informações CORBA introdutórias.</font></font></p>
+
+<div id="javasefooter">
+<div class="hr">
+<hr></div>
+<div id="javasecopyright">
+<a href="http://docs.oracle.com/javase/7/docs/legal/cpyr.html"><font><font>Copyright ©</font></font></a><font><font> 1993, 2014, Oracle e / ou suas afiliadas. </font><font>Todos os direitos reservados.
+</font></font></div>
+
+<div id="javasecontactus">
+<a href="http://docs.oracle.com/javase/feedback.html"><font><font>Contate-Nos</font></font></a>
+</div>
+</div>
+</div>
+
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" type="text/javascript" src="./Introdução ao IDL do Java_files/s_code_download.js"></script>
+<script language="JavaScript" type="text/javascript" src="./Introdução ao IDL do Java_files/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript" type="text/javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+ 
+<!-- End SiteCatalyst code --><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 116px; top: 463px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="./Introdução ao IDL do Java_files/translate_24dp.png" width="20" height="20" alt="Google Tradutor"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Writing the IDL file in
+this tutorial walks you through defining the remote interface for
+the simple "Hello World" example.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugerir uma tradução melhor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body><object id="a8db4879-aa18-a48c-9a8a-6a9a798ca98f" width="0" height="0" type="application/gas-events-cef"></object></html>
