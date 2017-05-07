@@ -1,0 +1,30 @@
+module ExampleParser{
+    interface Parser{
+ 
+        //Metodo de gerenciamento do Parser responsável pela criacao dos diagramas insercao de elementos e ligacao dos diagramas com os UC.
+        void managerParser();
+        
+        //Metodos de adicao de elementos no diagrama de casos de uso. 
+        boolean addActor();
+        boolean addAssociation();
+        boolean addInclude();
+        boolean addExtend();
+        boolean addUseCase();
+        
+        //Metodos de adicao do elemento decisionNode  Recebe o parametro tipo, pois ambos diagramas podem conter. 
+        boolean addDecisionNode();
+        
+        //Metodos de criacao e adicao de elementos do diagrama de atividades criado.
+        boolean addInitAction();
+        boolean addFinalAction();
+        boolean addAction();
+        boolean addFork();
+        boolean addJoin();
+ 
+        //Metodo para adicao de um novo diagrama à lista de diagramas, diferenciando o tipo do diagrama.
+        boolean addDiagram();
+        
+        //Metodo para buscar um diagrama na lista
+        void getDiagram();
+    };
+};
