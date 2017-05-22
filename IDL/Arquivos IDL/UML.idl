@@ -1,0 +1,8 @@
+module Project{
+    module Uml {
+        valuetype Diagram{private string name;};
+        struct UMLElement{string id;string nome;};
+        struct UMLAssociation{string id;string nome;UMLElement a;UMLElement b;};
+        enum TypeAssociation{include, extend, generalization};
+    }; //Finish Module Uml
+};
