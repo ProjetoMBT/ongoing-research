@@ -1,0 +1,7 @@
+module Project{
+
+    module exceptions {
+        exception ElementNotFound{};
+    };
+
+};
